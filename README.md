@@ -8,3 +8,5 @@
 第三章：打包和工具链
 ## [chapter4](https://github.com/wangzz719/goinaction/tree/master/chapter4)
 第四章：数组、切片和映射
+## [chapter5](https://github.com/wangzz719/goinaction/tree/master/chapter5)
+第五章：Go 语言的类型系统
