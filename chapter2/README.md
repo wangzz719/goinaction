@@ -4,7 +4,7 @@
 
 ### Entrance
 go 语言的程序入口是 main package 里的 `main()` 函数，如
-```
+```go
 package main
 
 func main(){ // entrance
