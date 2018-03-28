@@ -228,8 +228,14 @@ func New(email string, name string) *user {
 ```go
 package main
 
+import (
+	"fmt"
+
+	"learn-go/user"
+)
+
 func main() {
-    user := testpackage.NewUser("wzhizhao@gmail.com", "wangzhizhao")
+    user := user.NewUser("wzhizhao@gmail.com", "wangzhizhao")
         fmt.Println(user)
         fmt.Println(user.email) // 会导致编译错误，因为 email 是未公开变量
         fmt.Println(user.Name)
