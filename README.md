@@ -10,3 +10,5 @@
 第四章：数组、切片和映射
 ## [chapter5](https://github.com/wangzz719/goinaction/tree/master/chapter5)
 第五章：Go 语言的类型系统
+## [chapter6](https://github.com/wangzz719/goinaction/tree/master/chapter6)
+第六章：并发
