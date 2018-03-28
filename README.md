@@ -21,5 +21,8 @@
 ## [chapter7](https://github.com/wangzz719/goinaction/tree/master/chapter7)
 第七章：并发模式
 
+## [chapter8](https://github.com/wangzz719/goinaction/tree/master/chapter8)
+第八章：标准库
+
 ## [others](https://github.com/wangzz719/goinaction/tree/master/others)
 其他内容示例汇总
