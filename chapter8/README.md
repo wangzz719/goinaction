@@ -49,6 +49,11 @@ Decode 方法可以接受任意类型的值。使用反射，Decode 方法会拿
 - MarshalIndent 将 Go 语言的 map 类型的值或者结构类型的值转换为易读的 json 文档
 - Marshal 和 MarshalIndent 会使用反射来确定如何将 map 类型转换为 JSON 字符串
 
+### jsoniter
+go 自带的 `encode/json` 包在处理 json 时性能不足。
+
+开源的 [`jsoniter`](https://github.com/json-iterator/go) 是公认的性能较好的 json 编解码工具。
+
 ## io （输入和输出）
 所有实现了 io.Writer 和 io.Reader 两个接口类型的值，都可以使用 io 包提供的所有功能，
 也可以用于其他包里接受这两个接口的函数以及方法。

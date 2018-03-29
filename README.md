@@ -24,5 +24,8 @@
 ## [chapter8](https://github.com/wangzz719/goinaction/tree/master/chapter8)
 第八章：标准库
 
+## [chapter9](https://github.com/wangzz719/goinaction/tree/master/chapter9)
+第九章：测试和性能
+
 ## [others](https://github.com/wangzz719/goinaction/tree/master/others)
 其他内容示例汇总
