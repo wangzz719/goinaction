@@ -18,12 +18,14 @@ type user struct {
 }
 
 var bill user
+
 wzz := user{
     name:"wzz",
-    email:"wzhizhao@gmail.com",
+    email:"wzz@gmail.com",
     ext:123,
     privileged:true,
 }
+
 lisa := user{"Lisa", "lisa@email.com", 123, true} //这种形式下，值的顺序很重要，必须要和结构声明中字段的顺序一致
 ```
 
@@ -31,6 +33,7 @@ lisa := user{"Lisa", "lisa@email.com", 123, true} //这种形式下，值的顺�
 基于一个已有的类型，将其作为新类型的类型说明。当需要一个可以用已有类型表示的新类型的时候，这种方法会非常好用。
 ```go
 type duration int64
+
 var dur Duration
 dur = int64(1000) // 会导致编译错误，因为类型不同，编译器不会对不同类型的值做隐式转换
 ```
@@ -183,7 +186,7 @@ type admin struct {
 ad := admin {
     user: user {
         name:"wzz",
-        email:"wzhizhao@gmail.com",
+        email:"wzz@gmail.com",
         ext:123,
         privileged:true,
     },
@@ -235,10 +238,10 @@ import (
 )
 
 func main() {
-    user := user.NewUser("wzhizhao@gmail.com", "wangzhizhao")
-        fmt.Println(user)
-        fmt.Println(user.email) // 会导致编译错误，因为 email 是未公开变量
-        fmt.Println(user.Name)
-    }
+    user := user.New("wzz@gmail.com", "wzz")
+    
+    fmt.Println(user)
+    fmt.Println(user.email) // 会导致编译错误，因为 email 是未公开变量
+    fmt.Println(user.Name)
 }
 ```
