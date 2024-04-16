@@ -1,9 +1,9 @@
 package main
 
 import (
-	"sync"
-	"runtime"
 	"fmt"
+	"runtime"
+	"sync"
 )
 
 var (
@@ -13,6 +13,7 @@ var (
 
 func main() {
 	rcWg.Add(2)
+
 	go incrCounter(1)
 	go incrCounter(2)
 
@@ -22,10 +23,13 @@ func main() {
 
 func incrCounter(id int) {
 	defer rcWg.Done()
+
 	for count := 0; count < 2; count++ {
 		value := counter
+
 		runtime.Gosched()
-		value ++
+
+		value++
 		counter = value
 	}
 }

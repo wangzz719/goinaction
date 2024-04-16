@@ -1,10 +1,10 @@
 package runner
 
 import (
-	"os"
-	"time"
 	"errors"
+	"os"
 	"os/signal"
+	"time"
 )
 
 type Runner struct {
@@ -14,9 +14,11 @@ type Runner struct {
 	tasks     []func(int)
 }
 
-var ErrTimeout = errors.New("received timeout")
+var (
+	ErrTimeout = errors.New("received timeout")
 
-var ErrInterrupt = errors.New("received interrupt")
+	ErrInterrupt = errors.New("received interrupt")
+)
 
 func New(d time.Duration) *Runner {
 	return &Runner{
@@ -36,6 +38,7 @@ func (r *Runner) Start() error {
 	go func() {
 		r.complete <- r.run()
 	}()
+
 	select {
 	case err := <-r.complete:
 		return err
@@ -49,8 +52,10 @@ func (r *Runner) run() error {
 		if r.gotInterrupt() {
 			return ErrInterrupt
 		}
+
 		task(id)
 	}
+
 	return nil
 }
 
@@ -58,6 +63,7 @@ func (r *Runner) gotInterrupt() bool {
 	select {
 	case <-r.interrupt:
 		signal.Stop(r.interrupt)
+
 		return true
 	default:
 		return false

@@ -1,9 +1,9 @@
 package main
 
 import (
-	"sync"
 	"fmt"
 	"runtime"
+	"sync"
 )
 
 var wg sync.WaitGroup
@@ -25,6 +25,7 @@ func main() {
 
 func printPrime(prefix string) {
 	defer wg.Done()
+
 next:
 	for outer := 2; outer < 5000; outer++ {
 		for inner := 2; inner < outer; inner++ {
@@ -34,5 +35,6 @@ next:
 		}
 		fmt.Printf("%s:%d\n", prefix, outer)
 	}
+
 	fmt.Println("Completed ", prefix)
 }

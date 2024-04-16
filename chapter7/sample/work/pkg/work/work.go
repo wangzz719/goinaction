@@ -17,6 +17,7 @@ func New(maxGoroutines int) *Pool {
 	p := Pool{
 		work: make(chan Worker),
 	}
+
 	p.wg.Add(maxGoroutines)
 
 	for i := 0; i < maxGoroutines; i++ {
@@ -24,9 +25,11 @@ func New(maxGoroutines int) *Pool {
 			for w := range p.work {
 				w.Task()
 			}
+	
 			p.wg.Done()
 		}()
 	}
+	
 	return &p
 }
 
@@ -36,5 +39,6 @@ func (p *Pool) Run(w Worker) {
 
 func (p *Pool) Shutdown() {
 	close(p.work)
+	
 	p.wg.Wait()
 }

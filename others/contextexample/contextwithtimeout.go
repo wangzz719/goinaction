@@ -26,8 +26,11 @@ func slowOperation(ctx context.Context, duration time.Duration) {
 func main() {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
-	go slowOperation(ctx, 2)
+
+	go slowOperation(ctx, 20)
+
 	time.Sleep(10 * time.Second)
+
 	fmt.Println("context cancel")
 	time.Sleep(5 * time.Second)
 }

@@ -1,9 +1,9 @@
 package main
 
 import (
-	"sync"
-	"runtime"
 	"fmt"
+	"runtime"
+	"sync"
 	"sync/atomic"
 )
 
@@ -25,6 +25,7 @@ func incrCounterAtom(id int) {
 	defer atomWg.Done()
 	for count := 0; count < 2; count++ {
 		atomic.AddInt64(&counteratom, 1)
+
 		runtime.Gosched()
 	}
 }

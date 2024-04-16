@@ -1,13 +1,15 @@
 package main
 
 import (
-	"time"
 	"fmt"
+	"time"
 )
 
 func Run1(taskId, sleepTime, timeout int, ch chan string) {
 	chRun := make(chan string)
+
 	go run4(taskId, sleepTime, chRun)
+
 	select {
 	case re := <-chRun:
 		ch <- re
@@ -20,6 +22,7 @@ func Run1(taskId, sleepTime, timeout int, ch chan string) {
 func run4(taskId, sleepTime int, ch chan string) {
 	time.Sleep(time.Duration(sleepTime) * time.Second)
 	ch <- fmt.Sprintf("task id %d , sleep %d second", taskId, sleepTime)
+
 	return
 }
 
@@ -40,6 +43,7 @@ func main() {
 	for i, sleepTime := range input {
 		chs[i] = make(chan string, 1) // an buffered channel need, otherwise will lead to deadlock
 		chLimit <- true
+
 		go limitFunc(chLimit, chs[i], i, sleepTime, timeout)
 	}
 

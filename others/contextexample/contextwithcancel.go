@@ -8,6 +8,7 @@ import (
 
 func main() {
 	ctx, cancel := context.WithCancel(context.Background())
+
 	go func(ctx context.Context) {
 		for {
 			select {
@@ -20,7 +21,9 @@ func main() {
 			}
 		}
 	}(ctx)
+
 	time.Sleep(10 * time.Second)
+	
 	fmt.Println("context cancel")
 	cancel()
 	time.Sleep(5 * time.Second)
